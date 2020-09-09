@@ -6,6 +6,7 @@ import schemaTypes from "all:part:@sanity/base/schema-type";
 
 //documents
 import eventPage from "./documents/eventPage";
+import event from "./documents/event";
 
 //objects
 import hero from "./objects/hero";
@@ -19,6 +20,7 @@ export default createSchema({
   types: schemaTypes.concat([
     /* Your types here! */
     eventPage,
+    event,
     hero,
   ]),
 });
