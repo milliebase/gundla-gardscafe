@@ -1,6 +1,6 @@
 export default {
-  name: "eventPage",
-  title: "Evenemangssidor",
+  name: "stage",
+  title: "Scen-sida",
   type: "document",
   fields: [
     {

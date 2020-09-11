@@ -1,13 +1,12 @@
 export default {
-  name: "menu",
-  title: "Navigation menu",
+  name: "home",
+  title: "Startsida",
   type: "document",
   fields: [
     {
       name: "title",
-      title: "Title",
+      title: "Rubrik",
       type: "string",
-      description: "Title of page",
     },
   ],
 };

@@ -1,11 +1,16 @@
 export default {
-  name: "event",
-  title: "Evenemang",
+  name: "activities",
+  title: "Aktivitetssida",
   type: "document",
   fields: [
     {
+      name: "hero",
+      title: "Hero",
+      type: "hero",
+    },
+    {
       name: "title",
-      title: "Evenemang",
+      title: "Rubrik",
       type: "string",
     },
     {

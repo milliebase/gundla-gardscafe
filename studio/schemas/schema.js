@@ -5,8 +5,13 @@ import createSchema from "part:@sanity/base/schema-creator";
 import schemaTypes from "all:part:@sanity/base/schema-type";
 
 //documents
-import eventPage from "./documents/eventPage";
-import event from "./documents/event";
+import home from "./documents/home";
+import stage from "./documents/stage";
+import activities from "./documents/activities";
+import directions from "./documents/directions";
+import catering from "./documents/catering";
+import settings from "./documents/settings";
+import eventList from "./documents/eventList";
 
 //objects
 import hero from "./objects/hero";
@@ -19,8 +24,12 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     /* Your types here! */
-    eventPage,
-    event,
+    home,
+    activities,
+    stage,
+    directions,
+    catering,
+    eventList,
     hero,
   ]),
 });
