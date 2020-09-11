@@ -14,6 +14,11 @@ export default {
       type: "string",
     },
     {
+      name: "description",
+      title: "beskrivning",
+      type: "string",
+    },
+    {
       name: "slug",
       title: "Slug",
       type: "slug",

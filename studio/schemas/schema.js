@@ -12,6 +12,7 @@ import directions from "./documents/directions";
 import catering from "./documents/catering";
 import settings from "./documents/settings";
 import eventList from "./documents/eventList";
+import activityList from "./documents/activityList";
 
 //objects
 import hero from "./objects/hero";
@@ -30,6 +31,7 @@ export default createSchema({
     directions,
     catering,
     eventList,
+    activityList,
     hero,
   ]),
 });
