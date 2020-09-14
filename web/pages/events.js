@@ -1,5 +1,6 @@
 import client from "../client";
 import EventCard from "../components/EventCard";
+import MailBtn from "../components/mailBtn";
 
 const Events = (props) => {
   console.log(props);
@@ -12,6 +13,7 @@ const Events = (props) => {
           <EventCard key={item._id} item={item} />
         ))}
       </div>
+      <MailBtn />
     </div>
   );
 };
