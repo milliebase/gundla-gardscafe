@@ -1,13 +1,14 @@
 import client from "../client";
 import EventCard from "../components/EventCard";
 
-const Activities = (props) => {
+const Events = (props) => {
+  console.log(props);
   return (
     <div>
       <h1>{props.title}</h1>
       <p>{props.description}</p>
       <div>
-        {props.activityList.map((item) => (
+        {props.eventList.map((item) => (
           <EventCard key={item._id} item={item} />
         ))}
       </div>
@@ -15,12 +16,12 @@ const Activities = (props) => {
   );
 };
 
-Activities.getInitialProps = async function (context) {
+Events.getInitialProps = async function (context) {
   return await client.fetch(
     `
-    *[_type == "activities"][0]{
+    *[_type == "events"][0]{
       ...,
-      "activityList": *[_type == "activityList" && date >= now()] | order(date) {
+      "eventList": *[_type == "eventList" && date >= now()] | order(date) {
         ...,
         "imageUrl": image.asset->url
       }
@@ -29,4 +30,4 @@ Activities.getInitialProps = async function (context) {
   );
 };
 
-export default Activities;
+export default Events;

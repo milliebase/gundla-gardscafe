@@ -1,23 +1,34 @@
 import client from "../../client";
 
-const Event = (props) => {
-  // console.log(props);
+const SingleEvent = (props) => {
+  console.log(props);
   return (
     <div>
-      <h1>eventzzzz</h1>
+      <h1>{props.data[0].title}</h1>
     </div>
   );
 };
 
-Event.getInitialProps = async function (context) {
-  // It's important to default the slug so that it doesn't return "undefined"
-  const { slug = "" } = context.query;
-  return await client.fetch(
-    `
-          *[_type == "event" && slug.current == $slug][0]
-      `,
-    { slug }
-  );
-};
+export async function getStaticPaths() {
+  const query = `*[_type == "eventList"]`;
+  const events = await client.fetch(query);
 
-export default Event;
+  const paths = events.map((event) => ({
+    params: { slug: event.slug.current },
+  }));
+
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  const query = `*[_type == 'eventList' && slug.current == '${params.slug}']`;
+  const content = await client.fetch(query);
+
+  return {
+    props: {
+      data: content,
+    },
+  };
+}
+
+export default SingleEvent;

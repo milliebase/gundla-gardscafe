@@ -6,7 +6,7 @@ import schemaTypes from "all:part:@sanity/base/schema-type";
 
 //documents
 import home from "./documents/home";
-import stage from "./documents/stage";
+import events from "./documents/events";
 import activities from "./documents/activities";
 import directions from "./documents/directions";
 import catering from "./documents/catering";
@@ -27,7 +27,7 @@ export default createSchema({
     /* Your types here! */
     home,
     activities,
-    stage,
+    events,
     directions,
     catering,
     eventList,

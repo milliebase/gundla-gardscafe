@@ -1,6 +1,6 @@
 export default {
-  name: "stage",
-  title: "Scen-sida",
+  name: "events",
+  title: "Scenen",
   type: "document",
   fields: [
     {
@@ -11,6 +11,11 @@ export default {
     {
       name: "title",
       title: "Rubrik",
+      type: "string",
+    },
+    {
+      name: "description",
+      title: "beskrivning",
       type: "string",
     },
     {

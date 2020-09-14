@@ -1,7 +1,7 @@
-const ActivityCard = ({ item }) => {
+const EventCard = ({ item }) => {
   return (
     <div>
-      <h1>{item.title}</h1>
+      <h2>{item.title}</h2>
       <img src={item.imageUrl} />
       <p>{item.description}</p>
       <p>{item.date}</p>
@@ -9,4 +9,4 @@ const ActivityCard = ({ item }) => {
   );
 };
 
-export default ActivityCard;
+export default EventCard;
