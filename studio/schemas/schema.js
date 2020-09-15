@@ -15,6 +15,8 @@ import eventList from "./documents/eventList";
 
 //objects
 import hero from "./objects/hero";
+import review from "./objects/review";
+import cafe from "./objects/cafe";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -30,6 +32,9 @@ export default createSchema({
     directions,
     catering,
     eventList,
+    settings,
     hero,
+    review,
+    cafe,
   ]),
 });

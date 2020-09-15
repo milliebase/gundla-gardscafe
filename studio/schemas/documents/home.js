@@ -8,5 +8,54 @@ export default {
       title: "Rubrik",
       type: "string",
     },
+    {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        maxLength: 100,
+      },
+    },
+    {
+      name: "homeHero",
+      title: "Hero",
+      type: "hero",
+    },
+    {
+      name: "introductionTitle",
+      title: "Rubrik för introduktionstext",
+      type: "string",
+    },
+    {
+      name: "introduction",
+      title: "Introduktionstext",
+      type: "array",
+      of: [
+        {
+          type: "block",
+          styles: [
+            {
+              title: "Brödtext",
+              value: "normal",
+            },
+            {
+              title: "Mindre text",
+              value: "h6",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "cafeSection",
+      title: "Café",
+      type: "cafe",
+    },
+    {
+      name: "reviews",
+      title: "Recensioner",
+      type: "array",
+      of: [{ type: "review" }],
+    },
   ],
 };

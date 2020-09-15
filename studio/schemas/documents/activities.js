@@ -1,6 +1,6 @@
 export default {
   name: "activities",
-  title: "Aktivitetssida",
+  title: "Aktiviteter",
   type: "document",
   fields: [
     {
