@@ -1,13 +1,17 @@
 import client from "../client";
-import PortableText from "@sanity/block-content-to-react";
 import PageCard from "../components/PageCard";
+import Review from "../components/Review";
 
 const Index = ({ content }) => {
-  console.log(content);
+  const reviews = content.home.reviews;
   return (
     <div>
-      <p>Hello world!</p>
-      <PortableText blocks={content.home.introduction} />
+      <section>
+        {reviews &&
+          reviews.map((review) => {
+            <Review review={review.reviewText} reviewer={review.name} />;
+          })}
+      </section>
 
       <section>
         {content.heroes &&
@@ -31,8 +35,8 @@ export async function getStaticProps() {
   const content = await client.fetch(
     `
       {
-       "home": *[_type == "home"][0],
-       "heroes": *[_type in ["activities", "catering", "stage"]]{
+        "home": *[_type == "home"][0],
+        "heroes": *[_type in ["activities", "catering", "stage"]]{
         "heading": hero.heading,
         "description": hero.pageDescription,
         "url": hero.backgroundImage.asset->url,
