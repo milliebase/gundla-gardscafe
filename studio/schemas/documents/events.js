@@ -4,11 +4,6 @@ export default {
   type: "document",
   fields: [
     {
-      name: "hero",
-      title: "Hero",
-      type: "hero",
-    },
-    {
       name: "title",
       title: "Rubrik",
       type: "string",
@@ -25,6 +20,11 @@ export default {
       options: {
         maxLength: 100,
       },
+    },
+    {
+      name: "hero",
+      title: "Hero",
+      type: "hero",
     },
   ],
 };
