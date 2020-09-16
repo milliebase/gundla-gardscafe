@@ -22,7 +22,7 @@ export default () =>
                 ),
               S.listItem()
                 .title("Scenen")
-                .child(S.editor().schemaType("stage").documentId("stage")),
+                .child(S.editor().schemaType("events").documentId("events")),
               S.listItem()
                 .title("Hitta hit")
                 .child(
@@ -40,6 +40,10 @@ export default () =>
         .title("Evenemang")
         .schemaType("eventList")
         .child(S.documentTypeList("eventList").title("Evenemang")),
+      S.listItem()
+        .title("Aktiviteter")
+        .schemaType("eventList")
+        .child(S.documentTypeList("activityList").title("Aktiviteter")),
       S.listItem()
         .title("Inställningar")
         .child(S.editor().schemaType("settings").documentId("settings"))
