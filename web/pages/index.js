@@ -4,6 +4,7 @@ import Review from "../components/Review";
 
 const Index = ({ content }) => {
   const reviews = content.home.reviews;
+
   return (
     <div>
       <section>
@@ -50,7 +51,7 @@ export async function getStaticProps() {
   return {
     props: {
       content,
-    }, // will be passed to the page component as props
+    },
   };
 }
 

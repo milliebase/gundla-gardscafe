@@ -12,6 +12,7 @@ export default {
       name: "slug",
       title: "Slug",
       type: "slug",
+      readOnly: true,
       options: {
         maxLength: 100,
       },

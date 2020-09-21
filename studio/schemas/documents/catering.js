@@ -12,6 +12,7 @@ export default {
       name: "slug",
       title: "Slug",
       type: "slug",
+      readOnly: true,
       options: {
         maxLength: 100,
       },
@@ -20,6 +21,17 @@ export default {
       name: "hero",
       title: "Hero",
       type: "hero",
+    },
+    {
+      name: "cateringCategory",
+      title: "Olika typer av cateringerbjudanden",
+      type: "array",
+      of: [{ type: "cateringCategory" }],
+    },
+    {
+      name: "booking",
+      title: "Bokningsformulär",
+      type: "booking",
     },
   ],
 };

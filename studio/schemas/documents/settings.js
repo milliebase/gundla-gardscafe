@@ -9,6 +9,13 @@ export default {
       type: "string",
     },
     {
+      name: "socialMedia",
+      title: "Sociala medier",
+      description: "Ange länkar till dina sociala medier",
+      type: "array",
+      of: [{ type: "socialMedia" }],
+    },
+    {
       name: "readMore",
       title: "Läs mer-knapp",
       type: "string",

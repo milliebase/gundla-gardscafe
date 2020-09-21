@@ -1,22 +1,12 @@
 export default {
-  name: "directions",
-  title: "Hitta hit",
-  type: "document",
+  name: "cateringCategory",
+  title: "Olika typer av cateringerbjudanden",
+  type: "object",
   fields: [
     {
       name: "title",
-      title: "Title",
+      title: "Rubrik",
       type: "string",
-      description: "Title of page",
-    },
-    {
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      readOnly: true,
-      options: {
-        maxLength: 100,
-      },
     },
     {
       name: "description",
@@ -35,13 +25,8 @@ export default {
       ],
     },
     {
-      name: "contactInformation",
-      title: "Kontaktinformation",
-      type: "contactInformation",
-    },
-    {
-      name: "map",
-      title: "Karta",
+      name: "image",
+      title: "Bild",
       type: "image",
       options: {
         hotspot: true,
@@ -61,12 +46,6 @@ export default {
           title: "Attribution",
         },
       ],
-    },
-    {
-      name: "transportation",
-      title: "Typ av fordonsbeskrivningar",
-      type: "array",
-      of: [{ type: "transport" }],
     },
   ],
 };
