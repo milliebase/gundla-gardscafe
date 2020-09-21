@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Kadwa&display=swap");
+
+:root {
+  --gundla-brown: #341f0f;
+  --gundla-green: #1c2d25;
+  --gundla-forest: #121e18;
+  --gundla-paper: #ffecd3;
+  --gundla-button: #fff5e8;
+}
+
+body {
+  margin: 0;
+  font-family: "Kadwa", serif;
+  background-color: var(--gundla-green);
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 130%;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 120%;
+}
+
+h3 {
+  font-size: 18px;
+  line-height: 27px;
+}
+
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 16px;
+  line-height: 161.8%;
+}
