@@ -1,12 +1,28 @@
 import client from "../client";
+import History from "../components/History";
+import HomeHero from "../components/HomeHero";
+
+import Layout from "../components/Layout";
 import PageCard from "../components/PageCard";
 import Review from "../components/Review";
 
 const Index = ({ content }) => {
   const reviews = content.home.reviews;
+  const home = content.home;
+  const hero = home.homeHero;
 
   return (
-    <div>
+    <Layout>
+      <HomeHero
+        heading={hero.heading}
+        subHeading={hero.subHeading}
+        image={hero.backgroundImage.asset._ref}
+        alt={hero.backgroundImage.caption}
+        hotspot={hero.backgroundImage.hotspot}
+      />
+
+      <History heading={home.introductionTitle} text={home.introduction} />
+
       <section>
         {reviews &&
           reviews.map((review) => {
@@ -20,7 +36,7 @@ const Index = ({ content }) => {
             return (
               <PageCard
                 key={i}
-                url={hero.url}
+                image={hero.image}
                 alt={hero.alt ? hero.alt : "This is a test"}
                 heading={hero.heading}
                 description={hero.description}
@@ -28,7 +44,7 @@ const Index = ({ content }) => {
             );
           })}
       </section>
-    </div>
+    </Layout>
   );
 };
 
@@ -40,7 +56,7 @@ export async function getStaticProps() {
         "heroes": *[_type in ["activities", "catering", "stage"]]{
         "heading": hero.heading,
         "description": hero.pageDescription,
-        "url": hero.backgroundImage.asset->url,
+        "image": hero.backgroundImage.asset._ref,
         "alt": hero.backgroundImage.caption
       },
        "readMore": *[_type == "settings"]{readMore}

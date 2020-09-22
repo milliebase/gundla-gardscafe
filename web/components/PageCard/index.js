@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import PortableText from "@sanity/block-content-to-react";
+import { urlFor } from "../../imageUrl";
 
 const StyledPageCard = styled.div`
   img {
@@ -7,10 +8,10 @@ const StyledPageCard = styled.div`
   }
 `;
 
-const PageCard = ({ url, alt, heading, description }) => {
+const PageCard = ({ image, alt, heading, description }) => {
   return (
     <StyledPageCard>
-      <img src={url} alt={alt} />
+      <img src={urlFor(image)} alt={alt} />
 
       <div>
         <h1>{heading}</h1>
