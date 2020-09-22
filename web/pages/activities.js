@@ -8,7 +8,7 @@ const Activities = (props) => {
       <p>{props.description}</p>
       <div>
         {props.activityList.map((item) => (
-          <EventCard key={item._id} item={item} />
+          <EventCard key={item._id} item={item} path={props._id} />
         ))}
       </div>
     </div>
