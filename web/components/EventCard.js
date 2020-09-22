@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Button from "./Button";
 import Link from "next/link";
+import transformDate from "../functions/transformDate";
 
 const StyledEventCard = styled.div`
   margin: 0 20px 40px 20px;
@@ -28,16 +29,29 @@ const StyledEventCard = styled.div`
     margin-bottom: 6px;
     font-weight: normal;
   }
+  .date {
+    text-transform: capitalize;
+    margin-bottom: 0;
+    line-height: 161%;
+    span {
+      color: #f03939;
+    }
+  }
 `;
 
 const EventCard = ({ item, path }) => {
+  const date = transformDate(item.date);
+
   return (
     <StyledEventCard>
       <section>
         <img src={item.imageUrl} />
       </section>
       <div>
-        <p>{item.date}</p>
+        <h3 className="date">
+          <span>{date.day}</span>
+          {date.month}
+        </h3>
         <h3>{item.title}</h3>
         <p>{item.description}</p>
       </div>
