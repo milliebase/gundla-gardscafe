@@ -17,26 +17,32 @@ const StyledDecorHeading = styled.div`
     }
   }
 
-  .line {
-    height: 2px;
-    width: 100%;
-    background-color: var(--gundla-brown);
-    margin-left: -2px;
-  }
-
-  .heading-text {
-    background-color: var(--gundla-paper);
-    position: absolute;
-    z-index: 9;
-    padding: 2% 5%;
-  }
-
   @media (min-width: 992px) {
     margin: 5% 0;
 
     .heading-text {
       padding: 0 3%;
     }
+  }
+`;
+
+const Line = styled.div`
+  height: 2px;
+  width: 100%;
+  background-color: ${(props) =>
+    props.isDark ? "var(--gundla-brown)" : "var(--gundla-paper)"};
+  margin-left: -2px;
+`;
+
+const StyledHeadingText = styled.div`
+  background-color: ${(props) =>
+    props.isDark ? "var(--gundla-paper)" : "var(--gundla-green)"};
+  position: absolute;
+  z-index: 9;
+  padding: 2% 5%;
+
+  @media (min-width: 992px) {
+    padding: 0 3%;
   }
 `;
 
@@ -51,7 +57,7 @@ const DecorHeading = ({ heading, dark }) => {
               : "/assets/line-decor-left.svg"
           }
         />
-        <div className="line"></div>
+        <Line isDark={dark}></Line>
         <img
           src={
             dark
@@ -61,9 +67,9 @@ const DecorHeading = ({ heading, dark }) => {
         />
       </div>
 
-      <div className="heading-text">
+      <StyledHeadingText isDark={dark}>
         <h2>{heading}</h2>
-      </div>
+      </StyledHeadingText>
     </StyledDecorHeading>
   );
 };
