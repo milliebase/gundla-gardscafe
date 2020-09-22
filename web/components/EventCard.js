@@ -4,10 +4,10 @@ import Link from "next/link";
 import transformDate from "../functions/transformDate";
 
 const StyledEventCard = styled.div`
-  margin: 0 20px 40px 20px;
+  margin-bottom: 40px;
   padding-bottom: 16px;
   background-color: var(--gundla-paper);
-  section {
+  .imageContainer {
     height: 206px;
     width: 100%;
   }
@@ -16,7 +16,7 @@ const StyledEventCard = styled.div`
     height: 100%;
     object-fit: cover;
   }
-  div {
+  .textContainer {
     padding: 16px;
     * {
       margin: 0;
@@ -44,10 +44,10 @@ const EventCard = ({ item, path }) => {
 
   return (
     <StyledEventCard>
-      <section>
+      <div className="imageContainer">
         <img src={item.imageUrl} />
-      </section>
-      <div>
+      </div>
+      <div className="textContainer">
         <h3 className="date">
           <span>{date.day}</span>
           {date.month}

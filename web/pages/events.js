@@ -1,22 +1,32 @@
 import client from "../client";
 import EventCard from "../components/EventCard";
-import MyForm from "../components/MyForm";
+import Form from "../components/Form";
+import styled from "styled-components";
+
+const StyledEventsPage = styled.div`
+  section {
+    padding: 0 20px;
+  }
+`;
 
 const Events = (props) => {
+  console.log(props);
   return (
-    <div>
-      <h1>{props.title}</h1>
-      <p>{props.description}</p>
-      <div>
-        {props.eventList.map((item) => (
-          <EventCard key={item._id} item={item} path={props._id} />
-        ))}
-      </div>
-      <MyForm
-        subject={"Events"}
-        fields={["email", "bandnamn", "description"]}
-      />
-    </div>
+    <StyledEventsPage>
+      <section>
+        <h1>{props.title}</h1>
+        <p>{props.description}</p>
+        <div>
+          {props.eventList.map((item) => (
+            <EventCard key={item._id} item={item} path={props._id} />
+          ))}
+        </div>
+        <Form
+          subject={"Events"}
+          fields={["email", "bandnamn", "description"]}
+        />
+      </section>
+    </StyledEventsPage>
   );
 };
 

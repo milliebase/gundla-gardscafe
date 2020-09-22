@@ -1,17 +1,26 @@
 import client from "../client";
 import EventCard from "../components/EventCard";
+import styled from "styled-components";
+
+const StyledActivitiesPage = styled.div`
+  section {
+    padding: 0 20px;
+  }
+`;
 
 const Activities = (props) => {
   return (
-    <div>
-      <h1>{props.title}</h1>
-      <p>{props.description}</p>
-      <div>
-        {props.activityList.map((item) => (
-          <EventCard key={item._id} item={item} path={props._id} />
-        ))}
-      </div>
-    </div>
+    <StyledActivitiesPage>
+      <section>
+        <h1>{props.title}</h1>
+        <p>{props.description}</p>
+        <div>
+          {props.activityList.map((item) => (
+            <EventCard key={item._id} item={item} path={props._id} />
+          ))}
+        </div>
+      </section>
+    </StyledActivitiesPage>
   );
 };
 
