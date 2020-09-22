@@ -11,7 +11,9 @@ const StyledPageCard = styled.div`
 const PageCard = ({ image, alt, heading, description }) => {
   return (
     <StyledPageCard>
-      <img src={urlFor(image)} alt={alt} />
+      <div>
+        <img src={urlFor(image)} alt={alt} />
+      </div>
 
       <div>
         <h1>{heading}</h1>

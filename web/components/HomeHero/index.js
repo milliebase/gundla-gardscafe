@@ -7,7 +7,6 @@ const StyledHomeHero = styled.section`
   justify-content: center;
   align-items: flex-end;
   position: relative;
-  margin: 5% 0;
 
   .hero-text {
     background-color: var(--gundla-paper);

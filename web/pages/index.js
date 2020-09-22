@@ -1,15 +1,16 @@
 import client from "../client";
+import Cafe from "../components/Cafe";
 import History from "../components/History";
 import HomeHero from "../components/HomeHero";
 
 import Layout from "../components/Layout";
-import PageCard from "../components/PageCard";
-import Review from "../components/Review";
+import PageDisplayer from "../components/PageDisplayer";
+import Spacer from "../components/Spacer";
 
 const Index = ({ content }) => {
-  const reviews = content.home.reviews;
   const home = content.home;
   const hero = home.homeHero;
+  const cafe = home.cafeSection;
 
   return (
     <Layout>
@@ -20,30 +21,17 @@ const Index = ({ content }) => {
         alt={hero.backgroundImage.caption}
         hotspot={hero.backgroundImage.hotspot}
       />
-
+      <Spacer />
       <History heading={home.introductionTitle} text={home.introduction} />
+      <Spacer />
+      <Cafe
+        heading={cafe.title}
+        text={cafe.description}
+        image={cafe.image.asset._ref}
+        caption={cafe.image.caption}
+      />
 
-      <section>
-        {reviews &&
-          reviews.map((review) => {
-            <Review review={review.reviewText} reviewer={review.name} />;
-          })}
-      </section>
-
-      <section>
-        {content.heroes &&
-          content.heroes.map((hero, i) => {
-            return (
-              <PageCard
-                key={i}
-                image={hero.image}
-                alt={hero.alt ? hero.alt : "This is a test"}
-                heading={hero.heading}
-                description={hero.description}
-              />
-            );
-          })}
-      </section>
+      <PageDisplayer heading={home.underPagesHeading} heroes={content.heroes} />
     </Layout>
   );
 };

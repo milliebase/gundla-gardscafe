@@ -32,6 +32,10 @@ const Line = styled.div`
   background-color: ${(props) =>
     props.isDark ? "var(--gundla-brown)" : "var(--gundla-paper)"};
   margin-left: -2px;
+
+  @media (min-width: 992px) {
+    height: ${(props) => (props.isDark ? "3px" : "2px")};
+  }
 `;
 
 const StyledHeadingText = styled.div`
@@ -41,8 +45,13 @@ const StyledHeadingText = styled.div`
   z-index: 9;
   padding: 2% 5%;
 
+  h2 {
+    color: ${(props) =>
+      props.isDark ? "var(--gundla-brown)" : "var(--gundla-paper)"};
+  }
+
   @media (min-width: 992px) {
-    padding: 0 3%;
+    padding: 1% 3%;
   }
 `;
 
