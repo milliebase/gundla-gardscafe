@@ -8,7 +8,7 @@ const StyledHomeHero = styled.section`
   align-items: flex-end;
   position: relative;
 
-  .hero-text {
+  .text {
     background-color: var(--gundla-paper);
     display: flex;
     flex-direction: column;
@@ -42,7 +42,7 @@ const StyledHomeHero = styled.section`
     justify-content: space-between;
     align-items: center;
 
-    .hero-text {
+    .text {
       width: 50%;
 
       h1 {
@@ -62,7 +62,7 @@ const StyledHomeHero = styled.section`
 const HomeHero = ({ heading, subHeading, image, alt, hotspot }) => {
   return (
     <StyledHomeHero>
-      <div className="hero-text">
+      <div className="text">
         <h1>{heading}</h1>
         <h2>{subHeading}</h2>
       </div>

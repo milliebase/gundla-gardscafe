@@ -15,11 +15,24 @@ const PageDisplayer = ({ heading, heroes }) => {
 
       {heroes &&
         heroes.map((hero, i) => {
+          if (i % 2 === 0) {
+            return (
+              <PageCard
+                key={i}
+                image={hero.image}
+                alt={hero.alt ? hero.alt : ""}
+                heading={hero.heading}
+                description={hero.description}
+                rev
+              />
+            );
+          }
+
           return (
             <PageCard
               key={i}
               image={hero.image}
-              alt={hero.alt ? hero.alt : "This is a test"}
+              alt={hero.alt ? hero.alt : ""}
               heading={hero.heading}
               description={hero.description}
             />

@@ -32,10 +32,6 @@ const Line = styled.div`
   background-color: ${(props) =>
     props.isDark ? "var(--gundla-brown)" : "var(--gundla-paper)"};
   margin-left: -2px;
-
-  @media (min-width: 992px) {
-    height: ${(props) => (props.isDark ? "3px" : "2px")};
-  }
 `;
 
 const StyledHeadingText = styled.div`
@@ -66,7 +62,7 @@ const DecorHeading = ({ heading, dark }) => {
               : "/assets/line-decor-left.svg"
           }
         />
-        <Line isDark={dark}></Line>
+        <Line className="line" isDark={dark}></Line>
         <img
           src={
             dark
