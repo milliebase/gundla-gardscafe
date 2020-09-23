@@ -43,12 +43,16 @@ const StyledEventsAndActivitiesHero = styled.section`
   }
 
   @media (min-width: 992px) {
+    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
 
     .text {
       width: 50%;
-      top: unset;
+      position: absolute;
+      right: 40%;
+      top: 25%;
+      margin-bottom: 50px;
 
       h1 {
         padding: 0 10% 2% 10%;
@@ -64,7 +68,7 @@ const StyledEventsAndActivitiesHero = styled.section`
   }
 `;
 
-const HomeHero = ({ title, heroImageUrl, text }) => {
+const EventsAndActivitiesHero = ({ title, heroImageUrl, text }) => {
   return (
     <StyledEventsAndActivitiesHero>
       <div className="image">
@@ -79,4 +83,4 @@ const HomeHero = ({ title, heroImageUrl, text }) => {
   );
 };
 
-export default HomeHero;
+export default EventsAndActivitiesHero;
