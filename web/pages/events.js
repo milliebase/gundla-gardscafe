@@ -35,6 +35,7 @@ Events.getInitialProps = async function (context) {
     `
     *[_type == "events"][0]{
       ...,
+      "heroImageUrl": hero.backgroundImage.asset->url,
       "eventList": *[_type == "eventList" && date >= now()] | order(date) {
         ...,
         "imageUrl": image.asset->url

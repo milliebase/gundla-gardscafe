@@ -9,10 +9,9 @@ const StyledLayout = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-
-  img {
-    margin: 2% 0;
+    img {
+      margin: 2% 0;
+    }
   }
 
   @media (min-width: 992px) {

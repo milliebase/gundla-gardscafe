@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import Button from "./Button";
-import Link from "next/link";
+import LinkButton from "./LinkButton";
 import transformDate from "../functions/transformDate";
 
 const StyledEventCard = styled.div`
@@ -55,9 +54,8 @@ const EventCard = ({ item, path }) => {
         <h3>{item.title}</h3>
         <p>{item.description}</p>
       </div>
-      <Link href={`/${path}/${item._id}`} passHref>
-        <Button text="läs mer" />
-      </Link>
+
+      <LinkButton href={`/${path}/${item._id}`} text="läs mer" />
     </StyledEventCard>
   );
 };
