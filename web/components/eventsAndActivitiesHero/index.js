@@ -23,10 +23,6 @@ const StyledEventsAndActivitiesHero = styled.section`
     width: 85%;
     top: -100px;
     margin-bottom: -50px;
-
-    h2 {
-      text-transform: unset;
-    }
   }
 
   .image {
@@ -42,13 +38,21 @@ const StyledEventsAndActivitiesHero = styled.section`
     }
   }
 
+  .decorHeading {
+    font-size: 24px;
+  }
+
   @media (min-width: 992px) {
+    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
 
     .text {
       width: 50%;
-      top: unset;
+      position: absolute;
+      right: 40%;
+      top: 25%;
+      margin-bottom: 50px;
 
       h1 {
         padding: 0 10% 2% 10%;
@@ -64,7 +68,7 @@ const StyledEventsAndActivitiesHero = styled.section`
   }
 `;
 
-const HomeHero = ({ heroImageUrl, text }) => {
+const EventsAndActivitiesHero = ({ title, heroImageUrl, text }) => {
   return (
     <StyledEventsAndActivitiesHero>
       <div className="image">
@@ -72,11 +76,11 @@ const HomeHero = ({ heroImageUrl, text }) => {
       </div>
 
       <div className="text">
-        <DecorHeading heading={"AKTIVITETER"} dark />
+        <DecorHeading heading={title} dark />
         <PortableText blocks={text} />
       </div>
     </StyledEventsAndActivitiesHero>
   );
 };
 
-export default HomeHero;
+export default EventsAndActivitiesHero;

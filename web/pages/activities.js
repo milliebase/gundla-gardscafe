@@ -3,6 +3,7 @@ import EventCard from "../components/EventCard";
 import styled from "styled-components";
 import Layout from "../components/Layout/index";
 import EventsAndActivitiesHero from "../components/eventsAndActivitiesHero";
+import DecorHeading from "../components/DecorHeading";
 
 const StyledActivitiesPage = styled.div``;
 
@@ -12,11 +13,11 @@ const Activities = (props) => {
     <Layout>
       <StyledActivitiesPage>
         <EventsAndActivitiesHero
+          title={props.title}
           heroImageUrl={props.heroImageUrl}
           text={props.introduction}
         />
-        <h1>{props.title}</h1>
-        <p>{props.description}</p>
+        <DecorHeading heading="KOMMANDE AKTIVITETER" />
         <div>
           {props.activityList.map((item) => (
             <EventCard key={item._id} item={item} path={props._id} />
