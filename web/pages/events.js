@@ -2,7 +2,6 @@ import client from "../client";
 import EventCard from "../components/EventCard";
 import Form from "../components/Form";
 import styled from "styled-components";
-import Layout from "../components/Layout/index";
 import EventsAndActivitiesHero from "../components/eventsAndActivitiesHero";
 import DecorHeading from "../components/DecorHeading";
 
@@ -37,34 +36,34 @@ const StyledEventsPage = styled.div`
   }
 `;
 
-const Events = (props) => {
-  console.log(props);
+const Events = ({ content }) => {
+  console.log(content);
   return (
     <StyledEventsPage>
       <EventsAndActivitiesHero
-        title={props.heroHeading}
-        heroImageUrl={props.heroImageUrl}
-        text={props.introduction}
+        title={content.heroHeading}
+        heroImageUrl={content.heroImageUrl}
+        text={content.introduction}
       />
       <DecorHeading heading="KOMMANDE EVENEMANG" />
       <section className="cardSection">
         <div className="cardContainer">
-          {props.eventList.map((item) => (
-            <EventCard key={item._id} item={item} path={props._id} />
+          {content.eventList.map((item) => (
+            <EventCard key={item._id} item={item} path={content._id} />
           ))}
         </div>
       </section>
-      <DecorHeading heading={props.bookingForm.title} />
+      <DecorHeading heading={content.bookingForm.title} />
       <section className="formSection">
-        <p className="formInfo">{props.bookingForm.description}</p>
-        <Form subject={"Boka evenemang"} fields={props.bookingForm.fields} />
+        <p className="formInfo">{content.bookingForm.description}</p>
+        <Form subject={"Boka evenemang"} fields={content.bookingForm.fields} />
       </section>
     </StyledEventsPage>
   );
 };
 
-Events.getInitialProps = async function (context) {
-  return await client.fetch(
+export async function getStaticProps() {
+  const content = await client.fetch(
     `
     *[_type == "events"][0]{
       ...,
@@ -77,6 +76,11 @@ Events.getInitialProps = async function (context) {
     }
     `
   );
-};
 
+  return {
+    props: {
+      content,
+    },
+  };
+}
 export default Events;

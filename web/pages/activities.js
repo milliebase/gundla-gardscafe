@@ -1,7 +1,6 @@
 import client from "../client";
 import EventCard from "../components/EventCard";
 import styled from "styled-components";
-import Layout from "../components/Layout/index";
 import EventsAndActivitiesHero from "../components/eventsAndActivitiesHero";
 import DecorHeading from "../components/DecorHeading";
 
@@ -19,20 +18,20 @@ const StyledActivitiesPage = styled.div`
   }
 `;
 
-const Activities = (props) => {
-  console.log(props);
+const Activities = ({ content }) => {
+  console.log(content);
   return (
     <StyledActivitiesPage>
       <EventsAndActivitiesHero
-        title={props.heroHeading}
-        heroImageUrl={props.heroImageUrl}
-        text={props.introduction}
+        title={content.heading}
+        heroImageUrl={content.heroImageUrl}
+        text={content.introduction}
       />
       <DecorHeading heading="KOMMANDE AKTIVITETER" />
       <section className="cardSection">
         <div className="cardContainer">
-          {props.activityList.map((item) => (
-            <EventCard key={item._id} item={item} path={props._id} />
+          {content.activityList.map((item) => (
+            <EventCard key={item._id} item={item} path={content._id} />
           ))}
         </div>
       </section>
@@ -40,20 +39,26 @@ const Activities = (props) => {
   );
 };
 
-Activities.getInitialProps = async function (context) {
-  return await client.fetch(
+export async function getStaticProps() {
+  const content = await client.fetch(
     `
     *[_type == "activities"][0]{
-      ...,
-      "heroImageUrl": hero.backgroundImage.asset->url,
-      "heroHeading": hero.heading->heading,
-      "activityList": *[_type == "activityList" && date >= now()] | order(date) {
-        ...,
-        "imageUrl": image.asset->url
-      }
-    }
+            ...,
+            "heading": hero.heading->heading,
+            "heroImageUrl": hero.backgroundImage.asset->url,
+            "activityList": *[_type == "activityList" && date >= now()] | order(date) {
+              ...,
+              "imageUrl": image.asset->url
+            }
+          }
     `
   );
-};
+
+  return {
+    props: {
+      content,
+    },
+  };
+}
 
 export default Activities;

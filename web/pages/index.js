@@ -3,9 +3,7 @@ import client from "../client";
 import Cafe from "../components/Cafe";
 import History from "../components/History";
 import HomeHero from "../components/HomeHero";
-import Layout from "../components/Layout";
 import PageDisplayer from "../components/PageDisplayer";
-import Spacer from "../components/Spacer";
 import Instagram from "../components/Instagram";
 
 const Index = ({ content, instagram }) => {

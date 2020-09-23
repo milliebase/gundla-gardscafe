@@ -57,8 +57,8 @@ export default class Form extends React.Component {
         method="POST"
       >
         <input type="hidden" name="subject" value={this.subject} />
-        {this.fields.map((field) => (
-          <label>
+        {this.fields.map((field, i) => (
+          <label key={i}>
             {field}
             <input type={field} name={field} />
           </label>
