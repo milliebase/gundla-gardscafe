@@ -4,8 +4,36 @@ import styled from "styled-components";
 import Button from "../components/Button";
 
 const StyledForm = styled.form`
+  color: var(--gundla-paper);
+  textarea,
   input {
-    height: 50px;
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    width: 100%;
+    border: 1px solid #eeeeee;
+    background-color: white;
+    margin-bottom: 10px;
+  }
+  input {
+    height: 44px;
+  }
+  textarea {
+    width: 100%;
+    height: 164px;
+  }
+  Button {
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 50px;
+  }
+  @media (min-width: 992px) {
+    textarea {
+      height: 129px;
+    }
   }
 `;
 
@@ -30,11 +58,22 @@ export default class Form extends React.Component {
       >
         <input type="hidden" name="subject" value={this.subject} />
         {this.fields.map((field) => (
-          <div key={field}>
-            <label>{field}</label>
+          <label>
+            {field}
             <input type={field} name={field} />
-          </div>
+          </label>
         ))}
+
+        <label>
+          Meddelande
+          <textarea
+            type="meddelande"
+            name="meddelande"
+            rows="4"
+            cols="50"
+          ></textarea>
+        </label>
+
         {status === "SUCCESS" ? <p>Thanks!</p> : <Button text="skicka" />}
         {status === "ERROR" && <p>Ooops! There was an error.</p>}
       </StyledForm>

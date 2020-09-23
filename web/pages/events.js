@@ -2,10 +2,38 @@ import client from "../client";
 import EventCard from "../components/EventCard";
 import Form from "../components/Form";
 import styled from "styled-components";
+import Layout from "../components/Layout/index";
+import EventsAndActivitiesHero from "../components/eventsAndActivitiesHero";
+import DecorHeading from "../components/DecorHeading";
 
 const StyledEventsPage = styled.div`
-  section {
-    padding: 0 20px;
+  .formInfo {
+    color: var(--gundla-paper);
+    margin-bottom: 24px;
+  }
+  @media (min-width: 992px) {
+    .cardSection {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .cardContainer {
+        width: 55%;
+      }
+    }
+
+    .formSection {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      .formInfo {
+        width: 33%;
+      }
+      Form {
+        width: 40%;
+      }
+    }
   }
 `;
 
@@ -13,18 +41,23 @@ const Events = (props) => {
   console.log(props);
   return (
     <StyledEventsPage>
-      <section>
-        <h1>{props.title}</h1>
-        <p>{props.description}</p>
-        <div>
+      <EventsAndActivitiesHero
+        title={props.heroHeading}
+        heroImageUrl={props.heroImageUrl}
+        text={props.introduction}
+      />
+      <DecorHeading heading="KOMMANDE EVENEMANG" />
+      <section className="cardSection">
+        <div className="cardContainer">
           {props.eventList.map((item) => (
             <EventCard key={item._id} item={item} path={props._id} />
           ))}
         </div>
-        <Form
-          subject={"Events"}
-          fields={["email", "bandnamn", "description"]}
-        />
+      </section>
+      <DecorHeading heading={props.bookingForm.title} />
+      <section className="formSection">
+        <p className="formInfo">{props.bookingForm.description}</p>
+        <Form subject={"Boka evenemang"} fields={props.bookingForm.fields} />
       </section>
     </StyledEventsPage>
   );
@@ -36,6 +69,7 @@ Events.getInitialProps = async function (context) {
     *[_type == "events"][0]{
       ...,
       "heroImageUrl": hero.backgroundImage.asset->url,
+      "heroHeading": hero.heading->heading,
       "eventList": *[_type == "eventList" && date >= now()] | order(date) {
         ...,
         "imageUrl": image.asset->url
