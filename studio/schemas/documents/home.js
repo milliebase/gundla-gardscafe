@@ -58,10 +58,9 @@ export default {
       type: "string",
     },
     {
-      name: "reviews",
-      title: "Recensioner",
-      type: "array",
-      of: [{ type: "review" }],
+      name: "instagram",
+      title: "Instagram",
+      type: "instagram",
     },
   ],
 };
