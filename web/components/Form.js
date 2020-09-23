@@ -1,4 +1,15 @@
-export default class MyForm extends React.Component {
+//maby remove hidden input subject
+
+import styled from "styled-components";
+import Button from "../components/Button";
+
+const StyledForm = styled.form`
+  input {
+    height: 50px;
+  }
+`;
+
+export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.submitForm = this.submitForm.bind(this);
@@ -12,7 +23,7 @@ export default class MyForm extends React.Component {
   render() {
     const { status } = this.state;
     return (
-      <form
+      <StyledForm
         onSubmit={this.submitForm}
         action="https://formspree.io/mqkgzbwq"
         method="POST"
@@ -24,9 +35,9 @@ export default class MyForm extends React.Component {
             <input type={field} name={field} />
           </div>
         ))}
-        {status === "SUCCESS" ? <p>Thanks!</p> : <button>Submit</button>}
+        {status === "SUCCESS" ? <p>Thanks!</p> : <Button text="skicka" />}
         {status === "ERROR" && <p>Ooops! There was an error.</p>}
-      </form>
+      </StyledForm>
     );
   }
 
@@ -49,13 +60,3 @@ export default class MyForm extends React.Component {
     xhr.send(data);
   }
 }
-
-//alternative solution, opening mail client
-// const MailBtn = () => {
-//   const openMail = () => {
-//     window.open("mailto:test@example.com?subject=subject&body=body");
-//   };
-//   return <button onClick={openMail}>Skicka Mail</button>;
-// };
-
-// export default MailBtn;

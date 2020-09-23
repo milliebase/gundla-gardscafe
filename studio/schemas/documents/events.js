@@ -26,5 +26,10 @@ export default {
       title: "Hero",
       type: "hero",
     },
+    {
+      name: "bookingForm",
+      title: "bokningsformulär",
+      type: "booking",
+    },
   ],
 };

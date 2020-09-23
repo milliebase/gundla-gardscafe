@@ -21,12 +21,7 @@ export default {
     {
       name: "date",
       title: "datum",
-      type: "datetime",
-    },
-    {
-      name: "slug",
-      title: "slug",
-      type: "slug",
+      type: "date",
     },
   ],
 };

@@ -14,9 +14,24 @@ export default {
       type: "string",
     },
     {
-      name: "description",
-      title: "beskrivning",
-      type: "string",
+      name: "introduction",
+      title: "Introduktionstext",
+      type: "array",
+      of: [
+        {
+          type: "block",
+          styles: [
+            {
+              title: "Brödtext",
+              value: "normal",
+            },
+            {
+              title: "Mindre text",
+              value: "h6",
+            },
+          ],
+        },
+      ],
     },
     {
       name: "slug",

@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import Button from "./Button";
-import Link from "next/link";
+import LinkButton from "./LinkButton";
+import transformDate from "../functions/transformDate";
 
 const StyledEventCard = styled.div`
-  margin: 0 20px 40px 20px;
+  margin-bottom: 40px;
   padding-bottom: 16px;
   background-color: var(--gundla-paper);
-  section {
+  .imageContainer {
     height: 206px;
     width: 100%;
   }
@@ -15,7 +15,7 @@ const StyledEventCard = styled.div`
     height: 100%;
     object-fit: cover;
   }
-  div {
+  .textContainer {
     padding: 16px;
     * {
       margin: 0;
@@ -28,22 +28,34 @@ const StyledEventCard = styled.div`
     margin-bottom: 6px;
     font-weight: normal;
   }
+  .date {
+    text-transform: capitalize;
+    margin-bottom: 0;
+    line-height: 161%;
+    span {
+      color: #f03939;
+    }
+  }
 `;
 
 const EventCard = ({ item, path }) => {
+  const date = transformDate(item.date);
+
   return (
     <StyledEventCard>
-      <section>
+      <div className="imageContainer">
         <img src={item.imageUrl} />
-      </section>
-      <div>
-        <p>{item.date}</p>
+      </div>
+      <div className="textContainer">
+        <h3 className="date">
+          <span>{date.day}</span>
+          {date.month}
+        </h3>
         <h3>{item.title}</h3>
         <p>{item.description}</p>
       </div>
-      <Link href={`/${path}/${item._id}`} passHref>
-        <Button text="läs mer" />
-      </Link>
+
+      <LinkButton href={`/${path}/${item._id}`} text="läs mer" />
     </StyledEventCard>
   );
 };
