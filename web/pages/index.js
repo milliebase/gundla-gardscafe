@@ -1,34 +1,38 @@
 import client from "../client";
-import PageCard from "../components/PageCard";
-import Review from "../components/Review";
+import Cafe from "../components/Cafe";
+import History from "../components/History";
+import HomeHero from "../components/HomeHero";
+
+import Layout from "../components/Layout";
+import PageDisplayer from "../components/PageDisplayer";
+import Spacer from "../components/Spacer";
 
 const Index = ({ content }) => {
-  const reviews = content.home.reviews;
+  const home = content.home;
+  const hero = home.homeHero;
+  const cafe = home.cafeSection;
 
   return (
-    <div>
-      <section>
-        {reviews &&
-          reviews.map((review) => {
-            <Review review={review.reviewText} reviewer={review.name} />;
-          })}
-      </section>
+    <Layout>
+      <HomeHero
+        heading={hero.heading}
+        subHeading={hero.subHeading}
+        image={hero.backgroundImage.asset._ref}
+        alt={hero.backgroundImage.caption}
+        hotspot={hero.backgroundImage.hotspot}
+      />
+      <Spacer />
+      <History heading={home.introductionTitle} text={home.introduction} />
+      <Spacer />
+      <Cafe
+        heading={cafe.title}
+        text={cafe.description}
+        image={cafe.image.asset._ref}
+        caption={cafe.image.caption}
+      />
 
-      <section>
-        {content.heroes &&
-          content.heroes.map((hero, i) => {
-            return (
-              <PageCard
-                key={i}
-                url={hero.url}
-                alt={hero.alt ? hero.alt : "This is a test"}
-                heading={hero.heading}
-                description={hero.description}
-              />
-            );
-          })}
-      </section>
-    </div>
+      <PageDisplayer heading={home.underPagesHeading} heroes={content.heroes} />
+    </Layout>
   );
 };
 
@@ -40,7 +44,7 @@ export async function getStaticProps() {
         "heroes": *[_type in ["activities", "catering", "stage"]]{
         "heading": hero.heading,
         "description": hero.pageDescription,
-        "url": hero.backgroundImage.asset->url,
+        "image": hero.backgroundImage.asset._ref,
         "alt": hero.backgroundImage.caption
       },
        "readMore": *[_type == "settings"]{readMore}

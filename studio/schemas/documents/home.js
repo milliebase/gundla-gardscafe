@@ -53,6 +53,11 @@ export default {
       type: "cafe",
     },
     {
+      name: "underPagesHeading",
+      title: "Rubrik för undersidor på startsidan",
+      type: "string",
+    },
+    {
       name: "reviews",
       title: "Recensioner",
       type: "array",
