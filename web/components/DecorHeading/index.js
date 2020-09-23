@@ -73,7 +73,7 @@ const DecorHeading = ({ heading, dark }) => {
       </div>
 
       <StyledHeadingText isDark={dark}>
-        <h2>{heading}</h2>
+        <h2 className="decorHeading">{heading}</h2>
       </StyledHeadingText>
     </StyledDecorHeading>
   );
