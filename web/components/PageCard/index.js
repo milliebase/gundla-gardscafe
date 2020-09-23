@@ -2,6 +2,7 @@ import styled from "styled-components";
 import PortableText from "@sanity/block-content-to-react";
 import { urlFor } from "../../imageUrl";
 import DecorHeading from "../DecorHeading";
+import LinkButton from "../LinkButton";
 
 const StyledPageCard = styled.div`
   width: 100%;
@@ -37,6 +38,10 @@ const StyledPageCard = styled.div`
     }
   }
 
+  p {
+    margin-bottom: 5%;
+  }
+
   @media (min-width: 992px) {
     flex-direction: ${(props) => (props.rev ? "row-reverse" : "row")};
     justify-content: space-between;
@@ -60,7 +65,7 @@ const StyledPageCard = styled.div`
   }
 `;
 
-const PageCard = ({ image, alt, heading, description, rev }) => {
+const PageCard = ({ image, alt, heading, description, readMore, rev }) => {
   return (
     <StyledPageCard rev={rev}>
       <div className="image">
@@ -70,6 +75,7 @@ const PageCard = ({ image, alt, heading, description, rev }) => {
       <div className="text">
         <DecorHeading heading={heading} dark />
         <PortableText blocks={description} />
+        <LinkButton text={readMore} href={"hej"} />
       </div>
     </StyledPageCard>
   );

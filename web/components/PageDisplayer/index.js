@@ -8,7 +8,7 @@ const StyledPageDisplayer = styled.section`
   }
 `;
 
-const PageDisplayer = ({ heading, heroes }) => {
+const PageDisplayer = ({ heading, heroes, readMore }) => {
   return (
     <StyledPageDisplayer>
       <DecorHeading heading={heading} />
@@ -23,6 +23,7 @@ const PageDisplayer = ({ heading, heroes }) => {
                 alt={hero.alt ? hero.alt : ""}
                 heading={hero.heading}
                 description={hero.description}
+                readMore={readMore}
                 rev
               />
             );
@@ -35,6 +36,7 @@ const PageDisplayer = ({ heading, heroes }) => {
               alt={hero.alt ? hero.alt : ""}
               heading={hero.heading}
               description={hero.description}
+              readMore={readMore}
             />
           );
         })}

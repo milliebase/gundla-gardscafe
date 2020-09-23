@@ -34,7 +34,11 @@ const Index = ({ content, instagram }) => {
         image={cafe.image.asset._ref}
         caption={cafe.image.caption}
       />
-      <PageDisplayer heading={home.underPagesHeading} heroes={content.heroes} />
+      <PageDisplayer
+        heading={home.underPagesHeading}
+        heroes={content.heroes}
+        readMore={content.readMore.readMore}
+      />
       <Instagram
         content={home.instagram}
         username={instagramUsername}
@@ -55,7 +59,7 @@ export async function getStaticProps() {
         "image": hero.backgroundImage.asset._ref,
         "alt": hero.backgroundImage.caption
       },
-       "readMore": *[_type == "settings"]{readMore}
+       "readMore": *[_type == "settings"][0]{readMore}
       }
     `
   );

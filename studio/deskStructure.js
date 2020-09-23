@@ -7,6 +7,11 @@ export default () =>
     .title("Content")
     .items([
       S.listItem()
+        .title("Meny")
+        .schemaType("menu")
+        .child(S.documentTypeList("menu").title("Meny")),
+      S.divider(),
+      S.listItem()
         .title("Sidor")
         .child(
           S.list()

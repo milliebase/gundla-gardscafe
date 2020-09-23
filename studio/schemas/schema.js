@@ -5,6 +5,7 @@ import createSchema from "part:@sanity/base/schema-creator";
 import schemaTypes from "all:part:@sanity/base/schema-type";
 
 //documents
+import menu from "./documents/menu";
 import home from "./documents/home";
 import events from "./documents/events";
 import activities from "./documents/activities";
@@ -32,6 +33,7 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     /* Your types here! */
+    menu,
     home,
     activities,
     events,

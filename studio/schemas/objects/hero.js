@@ -24,7 +24,8 @@ export default {
     {
       name: "heading",
       title: "Rubrik",
-      type: "string",
+      type: "reference",
+      to: [{ type: "menu" }],
     },
     {
       name: "subHeading",

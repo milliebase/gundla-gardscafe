@@ -4,19 +4,9 @@ export default {
   type: "document",
   fields: [
     {
-      name: "title",
-      title: "Title",
-      type: "string",
-      description: "Title of page",
-    },
-    {
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      readOnly: true,
-      options: {
-        maxLength: 100,
-      },
+      name: "hero",
+      title: "Hero",
+      type: "hero",
     },
     {
       name: "description",

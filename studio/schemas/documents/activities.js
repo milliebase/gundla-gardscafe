@@ -9,11 +9,6 @@ export default {
       type: "hero",
     },
     {
-      name: "title",
-      title: "Rubrik",
-      type: "string",
-    },
-    {
       name: "introduction",
       title: "Introduktionstext",
       type: "array",
@@ -32,14 +27,6 @@ export default {
           ],
         },
       ],
-    },
-    {
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      options: {
-        maxLength: 100,
-      },
     },
   ],
 };

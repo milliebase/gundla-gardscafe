@@ -4,21 +4,12 @@ export default {
   type: "document",
   fields: [
     {
-      name: "title",
+      name: "heading",
       title: "Rubrik",
       type: "string",
     },
     {
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      readOnly: true,
-      options: {
-        maxLength: 100,
-      },
-    },
-    {
-      name: "homeHero",
+      name: "hero",
       title: "Hero",
       type: "hero",
     },
@@ -38,10 +29,6 @@ export default {
             {
               title: "Brödtext",
               value: "normal",
-            },
-            {
-              title: "Mindre text",
-              value: "h6",
             },
           ],
         },
