@@ -10,7 +10,7 @@ import Instagram from "../components/Instagram";
 
 const Index = ({ content, instagram }) => {
   const home = content.home;
-  const hero = home.homeHero;
+  const hero = home.hero;
   const cafe = home.cafeSection;
   const instagramPosts = instagram.graphql.user.edge_owner_to_timeline_media.edges.slice(
     0,
@@ -21,11 +21,10 @@ const Index = ({ content, instagram }) => {
   return (
     <Layout>
       <HomeHero
-        heading={hero.heading}
+        heading={home.heading}
         subHeading={hero.subHeading}
         image={hero.backgroundImage.asset._ref}
         alt={hero.backgroundImage.caption}
-        hotspot={hero.backgroundImage.hotspot}
       />
       <History heading={home.introductionTitle} text={home.introduction} />
       <Cafe
@@ -51,16 +50,17 @@ const Index = ({ content, instagram }) => {
 export async function getStaticProps() {
   const content = await client.fetch(
     `
-      {
-        "home": *[_type == "home"][0],
-        "heroes": *[_type in ["activities", "catering", "stage"]]{
-        "heading": hero.heading,
-        "description": hero.pageDescription,
-        "image": hero.backgroundImage.asset._ref,
-        "alt": hero.backgroundImage.caption
-      },
-       "readMore": *[_type == "settings"][0]{readMore}
-      }
+    {
+      "home": *[_type == "home"][0],
+      "heroes": *[_type in ["activities", "events", "catering"]]{
+      "heading": hero.heading->heading,
+      "slug": hero.heading->slug,
+      "description": hero.pageDescription,
+      "image": hero.backgroundImage.asset._ref,
+      "alt": hero.backgroundImage.caption,
+    },
+     "readMore": *[_type == "settings"][0]{readMore}
+    }
     `
   );
 

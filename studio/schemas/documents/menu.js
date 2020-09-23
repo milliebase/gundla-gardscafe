@@ -4,7 +4,7 @@ export default {
   type: "document",
   fields: [
     {
-      name: "title",
+      name: "heading",
       title: "Rubrik",
       type: "string",
     },
@@ -12,14 +12,23 @@ export default {
       name: "slug",
       title: "Slug",
       type: "slug",
+      readOnly: "true",
       options: {
         maxLength: 100,
       },
     },
     {
       name: "order",
+      readOnly: "true",
       title: "Ordning i menyn",
       type: "number",
+    },
+  ],
+  orderings: [
+    {
+      name: "order",
+      title: "menuorder",
+      by: [{ field: "order", direction: "asc" }],
     },
   ],
 };

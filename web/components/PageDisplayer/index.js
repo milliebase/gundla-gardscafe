@@ -23,6 +23,7 @@ const PageDisplayer = ({ heading, heroes, readMore }) => {
                 alt={hero.alt ? hero.alt : ""}
                 heading={hero.heading}
                 description={hero.description}
+                slug={hero.slug.current}
                 readMore={readMore}
                 rev
               />
@@ -36,6 +37,7 @@ const PageDisplayer = ({ heading, heroes, readMore }) => {
               alt={hero.alt ? hero.alt : ""}
               heading={hero.heading}
               description={hero.description}
+              slug={hero.slug.current}
               readMore={readMore}
             />
           );

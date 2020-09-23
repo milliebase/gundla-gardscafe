@@ -65,7 +65,15 @@ const StyledPageCard = styled.div`
   }
 `;
 
-const PageCard = ({ image, alt, heading, description, readMore, rev }) => {
+const PageCard = ({
+  image,
+  alt,
+  heading,
+  description,
+  slug,
+  readMore,
+  rev,
+}) => {
   return (
     <StyledPageCard rev={rev}>
       <div className="image">
@@ -75,7 +83,7 @@ const PageCard = ({ image, alt, heading, description, readMore, rev }) => {
       <div className="text">
         <DecorHeading heading={heading} dark />
         <PortableText blocks={description} />
-        <LinkButton text={readMore} href={"hej"} />
+        <LinkButton text={readMore} href={`/${slug}`} />
       </div>
     </StyledPageCard>
   );

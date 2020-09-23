@@ -60,7 +60,7 @@ const StyledHomeHero = styled.section`
   }
 `;
 
-const HomeHero = ({ heading, subHeading, image, alt, hotspot }) => {
+const HomeHero = ({ heading, subHeading, image, alt }) => {
   return (
     <StyledHomeHero>
       <div className="text">
