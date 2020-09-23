@@ -1,7 +1,15 @@
 import styled from "styled-components";
+import Footer from "../Footer";
 
 const StyledLayout = styled.div`
-  padding: 0 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .wrapper {
+    padding: 0 5%;
+    background-color: var(--gundla-green);
+  }
 
   header {
     width: 100%;
@@ -16,17 +24,23 @@ const StyledLayout = styled.div`
   }
 
   @media (min-width: 992px) {
-    padding: 0 10%;
+    .wrapper {
+      padding: 0 10%;
+    }
   }
 `;
 
 const Layout = (props) => {
   return (
     <StyledLayout>
-      <header>
-        <img src="/assets/logo.svg" alt="Gundla Gårdscafé logo" />
-      </header>
-      {props.children}
+      <div className="wrapper">
+        <header>
+          <img src="/assets/logo.svg" alt="Gundla Gårdscafé logo" />
+        </header>
+        {props.children}
+      </div>
+
+      <Footer content={props.footer} />
     </StyledLayout>
   );
 };

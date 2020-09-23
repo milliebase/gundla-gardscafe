@@ -18,6 +18,12 @@ export default {
       },
     },
     {
+      name: "subCategories",
+      title: "Underkategorier",
+      type: "array",
+      of: [{ type: "string" }],
+    },
+    {
       name: "order",
       readOnly: "true",
       title: "Ordning i menyn",

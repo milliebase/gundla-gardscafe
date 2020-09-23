@@ -19,7 +19,7 @@ const Index = ({ content, instagram }) => {
   const instagramUsername = instagram.graphql.user.username;
 
   return (
-    <Layout>
+    <div>
       <HomeHero
         heading={home.heading}
         subHeading={hero.subHeading}
@@ -43,7 +43,7 @@ const Index = ({ content, instagram }) => {
         username={instagramUsername}
         posts={instagramPosts}
       />
-    </Layout>
+    </div>
   );
 };
 
