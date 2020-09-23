@@ -32,8 +32,8 @@ const StyledFooter = styled.footer`
     z-index: 150;
     padding: 0 5%;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-
     .link-item {
       margin-bottom: 8%;
     }
@@ -70,6 +70,7 @@ const StyledFooter = styled.footer`
     }
 
     .footer-links {
+      flex-direction: row;
       .link-item {
         margin-bottom: 0;
       }
