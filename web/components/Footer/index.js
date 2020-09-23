@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import client from "../../client";
 
 const StyledFooter = styled.footer`
   width: 100%;
@@ -95,8 +94,19 @@ const Footer = ({ content }) => {
   const directions = content.directions;
   const addressInfo = directions.contactInformation;
   const menu = content.menu.slice(1, 4);
+
   const date = new Date();
   const year = date.getFullYear();
+
+  const links = content.links.socialMedia;
+
+  const instagram = links.filter(
+    (item) => item.media.toLowerCase() === "instagram"
+  )[0];
+
+  const facebook = links.filter(
+    (item) => item.media.toLowerCase() === "facebook"
+  )[0];
 
   return (
     <StyledFooter>
@@ -137,8 +147,12 @@ const Footer = ({ content }) => {
         </div>
 
         <div className="social-media">
-          <img src="/assets/facebook.svg" alt="Facebook icon" />
-          <img src="/assets/instagram.svg" alt="Instagram icon" />
+          <a href={facebook.url}>
+            <img src="/assets/facebook.svg" alt="Facebook icon" />
+          </a>
+          <a href={instagram.url}>
+            <img src="/assets/instagram.svg" alt="Instagram icon" />
+          </a>
         </div>
       </div>
     </StyledFooter>
