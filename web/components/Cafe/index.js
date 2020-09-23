@@ -44,7 +44,6 @@ const StyledCafe = styled.section`
 
       img {
         height: 100%;
-        margin: 0;
       }
     }
 

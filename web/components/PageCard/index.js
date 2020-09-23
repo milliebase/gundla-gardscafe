@@ -10,6 +10,7 @@ const StyledPageCard = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  margin: 5% 0;
 
   .text {
     background-color: var(--gundla-paper);
@@ -52,8 +53,8 @@ const StyledPageCard = styled.div`
       justify-content: ${(props) => (props.rev ? "flex-start" : "flex-end")};
 
       img {
-        width: 663px;
-        height: 590px;
+        width: 574px;
+        height: 574px;
       }
     }
   }
