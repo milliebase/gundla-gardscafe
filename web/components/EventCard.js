@@ -36,6 +36,19 @@ const StyledEventCard = styled.div`
       color: #f03939;
     }
   }
+
+  @media (min-width: 992px) {
+    height: 179px;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: space-between;
+    .imageContainer {
+      height: 100%;
+      width: 29%;
+    }
+  }
 `;
 
 const EventCard = ({ item, path }) => {
@@ -53,9 +66,8 @@ const EventCard = ({ item, path }) => {
         </h3>
         <h3>{item.title}</h3>
         <p>{item.description}</p>
+        <LinkButton href={`/${path}/${item._id}`} text="läs mer" />
       </div>
-
-      <LinkButton href={`/${path}/${item._id}`} text="läs mer" />
     </StyledEventCard>
   );
 };
