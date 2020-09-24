@@ -127,7 +127,9 @@ const Footer = ({ content }) => {
 
         <div className="link-item">
           <h3>Öppettider</h3>
-          <p>Test</p>
+          <p>Håll koll på vår</p>
+          <p>Instagram eller</p>
+          <p>Facebook!</p>
         </div>
 
         {menu &&

@@ -5,8 +5,9 @@ import LinkButton from "../LinkButton";
 const StyledHomeHero = styled.section`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   position: relative;
   margin: 5% 0;
 
@@ -18,8 +19,10 @@ const StyledHomeHero = styled.section`
     justify-content: center;
     padding: 5%;
     text-align: center;
-    position: absolute;
+    position: relative;
     z-index: 10;
+    top: -100px;
+    margin-bottom: -80px;
     width: 85%;
 
     h2 {
@@ -49,11 +52,14 @@ const StyledHomeHero = styled.section`
   }
 
   @media (min-width: 992px) {
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
     .text {
       width: 50%;
+      position: absolute;
+      top: unset;
 
       h1 {
         padding: 0 10% 2% 10%;
@@ -78,6 +84,10 @@ const StyledHomeHero = styled.section`
 const HomeHero = ({ heading, subHeading, image, alt, buttons }) => {
   return (
     <StyledHomeHero>
+      <div className="image">
+        <img src={urlFor(image)} alt={alt} />
+      </div>
+
       <div className="text">
         <h1>{heading}</h1>
         <h2>{subHeading}</h2>
@@ -94,10 +104,6 @@ const HomeHero = ({ heading, subHeading, image, alt, buttons }) => {
               );
             })}
         </div>
-      </div>
-
-      <div className="image">
-        <img src={urlFor(image)} alt={alt} />
       </div>
     </StyledHomeHero>
   );
