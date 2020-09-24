@@ -1,11 +1,82 @@
 import client from "../../client";
+import styled from "styled-components";
+import DecorHeading from "../../components/DecorHeading";
+import Form from "../../components/Form";
+import Link from "next/link";
 
-const SingleEvent = (props) => {
-  console.log(props);
+const StyledSingleEvent = styled.div`
+  .mainImageContainer {
+    width: 100vw;
+    margin: 0 -20px;
+    height: 342px;
+  }
+  .mainImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  p {
+    color: var(--gundla-paper);
+  }
+  Form {
+    margin-top: 20px;
+  }
+  .backLink {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    img {
+      margin-right: 8px;
+      margin-bottom: 4px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    .mainImageContainer {
+      width: 45%;
+      height: 470px;
+      margin: 0;
+    }
+    .contentSection {
+      width: 50%;
+    }
+    .backLink {
+      justify-content: flex-start;
+      margin: 0;
+    }
+  }
+`;
+
+const SingleEvent = ({ data }) => {
+  console.log(data);
   return (
-    <div>
-      <h1>{props.data[0].title}</h1>
-    </div>
+    <StyledSingleEvent>
+      <div className="mainImageContainer">
+        <img className="mainImg" src={data[0].imageUrl} />
+      </div>
+      <section className="contentSection">
+        <Link href="/activities">
+          <a className="backLink">
+            <img src="/assets/arrow-left.svg" />
+            <p>ALLA AKTIVITETER</p>
+          </a>
+        </Link>
+        <DecorHeading heading={data[0].title} />
+        <p>{data[0].description}</p>
+        <DecorHeading heading="BOKA" />
+        <p>{data[0].bookingInfo}</p>
+        <Form
+          subject={`Boka aktivitet ${data[0].title}`}
+          fields={data[0].ticketForm.ticketForm.fields}
+        />
+      </section>
+    </StyledSingleEvent>
   );
 };
 
@@ -21,7 +92,15 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const query = `*[_type == 'activityList' && _id == '${params.slug}']`;
+  const query = `
+  *[_type == 'activityList' && _id == '${params.slug}']{
+    ...,
+    "imageUrl": image.asset->url,
+    "ticketForm": *[_type == "events"][0]{
+      ticketForm
+    }
+  }
+  `;
   const content = await client.fetch(query);
 
   return {
