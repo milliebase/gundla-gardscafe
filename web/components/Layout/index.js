@@ -1,5 +1,8 @@
+import { useState } from "react";
 import styled from "styled-components";
 import Footer from "../Footer";
+import Menu from "../Menu";
+import MenuItems from "../MenuItems";
 
 const StyledLayout = styled.div`
   display: flex;
@@ -10,6 +13,10 @@ const StyledLayout = styled.div`
   .wrapper {
     padding: 0 5%;
     background-color: var(--gundla-green);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   header {
@@ -32,11 +39,23 @@ const StyledLayout = styled.div`
 `;
 
 const Layout = (props) => {
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <StyledLayout>
       <div className="wrapper">
         <header>
           <img src="/assets/logo.svg" alt="Gundla Gårdscafé logo" />
+
+          {showMenu && (
+            <MenuItems
+              items={props.menu}
+              showMenu={showMenu}
+              setShowMenu={setShowMenu}
+            />
+          )}
+
+          {!showMenu && <Menu showMenu={showMenu} setShowMenu={setShowMenu} />}
         </header>
         {props.children}
       </div>

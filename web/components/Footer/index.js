@@ -32,7 +32,7 @@ const StyledFooter = styled.footer`
     z-index: 150;
     padding: 0 5%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 
     .link-item {
       margin-bottom: 8%;
@@ -70,6 +70,9 @@ const StyledFooter = styled.footer`
     }
 
     .footer-links {
+      flex-direction: row;
+      justify-content: space-between;
+
       .link-item {
         margin-bottom: 0;
       }
@@ -79,7 +82,7 @@ const StyledFooter = styled.footer`
       flex-direction: row;
       border-top: 1px solid var(--gundla-paper-op);
       padding: 2% 0 0;
-      margin: 5%;
+      margin: 5% 5% 2%;
 
       .social-media {
         width: 70px;

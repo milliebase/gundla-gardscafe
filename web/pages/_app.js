@@ -2,10 +2,10 @@ import client from "../client";
 import Layout from "../components/Layout";
 import "../styles.css";
 
-export default function App({ Component, pageProps, footer }) {
+export default function App({ Component, pageProps, content }) {
   return (
     <>
-      <Layout footer={footer}>
+      <Layout footer={content} menu={content.menu}>
         <Component {...pageProps} />
       </Layout>
     </>
@@ -24,5 +24,5 @@ App.getInitialProps = async () => {
     `
   );
 
-  return { footer: res };
+  return { content: res };
 };
