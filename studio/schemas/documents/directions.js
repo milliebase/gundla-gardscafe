@@ -58,5 +58,26 @@ export default {
       type: "array",
       of: [{ type: "transport" }],
     },
+    {
+      name: "openingHoursHeading",
+      title: "Rubrik för öppettider",
+      type: "string",
+    },
+    {
+      name: "openingHoursText",
+      title: "text om öppettider",
+      type: "array",
+      of: [
+        {
+          type: "block",
+          styles: [
+            {
+              title: "Brödtext",
+              value: "normal",
+            },
+          ],
+        },
+      ],
+    },
   ],
 };

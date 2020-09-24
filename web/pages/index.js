@@ -16,16 +16,16 @@ const Index = ({ content }) => {
   const [instagramPosts, setInstagramPosts] = useState(null);
   const [instagramUsername, setInstagramUsername] = useState(null);
 
-  useEffect(() => {
-    fetch("https://www.instagram.com/gundlagardscafe/?__a=1")
-      .then((res) => res.json())
-      .then((instagram) => {
-        setInstagramPosts(
-          instagram.graphql.user.edge_owner_to_timeline_media.edges.slice(0, 6)
-        );
-        setInstagramUsername(instagram.graphql.user.username);
-      });
-  });
+  // useEffect(() => {
+  //   fetch("https://www.instagram.com/gundlagardscafe/?__a=1")
+  //     .then((res) => res.json())
+  //     .then((instagram) => {
+  //       setInstagramPosts(
+  //         instagram.graphql.user.edge_owner_to_timeline_media.edges.slice(0, 6)
+  //       );
+  //       setInstagramUsername(instagram.graphql.user.username);
+  //     });
+  // });
 
   return (
     <div>
