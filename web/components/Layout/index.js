@@ -43,37 +43,37 @@ const Layout = (props) => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isBottom, setIsBottom] = useState(false);
 
-  // const handleScroll = () => {
-  //   const footerPos = document.querySelector("footer").offsetTop;
+  const handleScroll = () => {
+    const footerPos = document.querySelector("footer").offsetTop;
 
-  //   if (window.pageYOffset > footerPos) {
-  //     setIsBottom(true);
-  //   } else {
-  //     setIsBottom(false);
-  //   }
-  // };
+    if (window.pageYOffset > footerPos) {
+      setIsBottom(true);
+    } else {
+      setIsBottom(false);
+    }
+  };
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  // });
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  });
 
-  // useEffect(() => {
-  //   const width = window.innerWidth;
+  useEffect(() => {
+    const width = window.innerWidth;
 
-  //   if (width > 992) {
-  //     setIsDesktop(true);
-  //   } else {
-  //     setIsDesktop(false);
-  //   }
+    if (width > 992) {
+      setIsDesktop(true);
+    } else {
+      setIsDesktop(false);
+    }
 
-  //   const body = document.querySelector("body").classList;
+    const body = document.querySelector("body").classList;
 
-  //   if (showMenu && !isDesktop) {
-  //     body.add("no-scroll");
-  //   } else {
-  //     body.remove("no-scroll");
-  //   }
-  // });
+    if (showMenu && !isDesktop) {
+      body.add("no-scroll");
+    } else {
+      body.remove("no-scroll");
+    }
+  });
 
   return (
     <StyledLayout>
@@ -81,7 +81,7 @@ const Layout = (props) => {
         <header>
           <img src="/assets/logo.svg" alt="Gundla Gårdscafé logo" />
 
-          {/* {(showMenu || isDesktop) && (
+          {(showMenu || isDesktop) && (
             <MenuItems
               items={props.menu}
               showMenu={showMenu}
@@ -91,7 +91,7 @@ const Layout = (props) => {
 
           {!showMenu && !isBottom && (
             <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
-          )} */}
+          )}
         </header>
         {props.children}
       </div>
