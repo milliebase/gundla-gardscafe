@@ -63,6 +63,10 @@ p {
   outline: none;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 @media (min-width: 992px) {
   h1 {
     font-size: 40px;

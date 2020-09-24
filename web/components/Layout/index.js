@@ -65,6 +65,16 @@ const Layout = (props) => {
     window.addEventListener("scroll", handleScroll);
   });
 
+  useEffect(() => {
+    const body = document.querySelector("body").classList.toggle("no-scroll");
+
+    if (showMenu) {
+      body;
+    } else {
+      body;
+    }
+  }, [showMenu]);
+
   return (
     <StyledLayout>
       <div className="wrapper">
