@@ -2,8 +2,8 @@ import client from "../client";
 import EventCard from "../components/EventCard";
 import Form from "../components/Form";
 import styled from "styled-components";
-import EventsAndActivitiesHero from "../components/eventsAndActivitiesHero";
 import DecorHeading from "../components/DecorHeading";
+import Hero from "../components/Hero";
 
 const StyledEventsPage = styled.div`
   .formInfo {
@@ -37,14 +37,15 @@ const StyledEventsPage = styled.div`
 `;
 
 const Events = ({ content }) => {
-  console.log(content);
   return (
     <StyledEventsPage>
-      <EventsAndActivitiesHero
-        title={content.heroHeading}
-        heroImageUrl={content.heroImageUrl}
-        text={content.introduction}
+      <Hero
+        image={content.heroImageUrl}
+        alt={content.heading}
+        heading={content.heroHeading}
+        description={content.introduction}
       />
+
       <DecorHeading heading="KOMMANDE EVENEMANG" />
       <section className="cardSection">
         <div className="cardContainer">

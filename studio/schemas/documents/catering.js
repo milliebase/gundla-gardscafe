@@ -4,6 +4,22 @@ export default {
   type: "document",
   fields: [
     {
+      name: "description",
+      title: "Beskrivning",
+      type: "array",
+      of: [
+        {
+          type: "block",
+          styles: [
+            {
+              title: "Brödtext",
+              value: "normal",
+            },
+          ],
+        },
+      ],
+    },
+    {
       name: "hero",
       title: "Hero",
       type: "hero",

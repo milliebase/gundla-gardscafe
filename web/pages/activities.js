@@ -1,8 +1,8 @@
 import client from "../client";
 import EventCard from "../components/EventCard";
 import styled from "styled-components";
-import EventsAndActivitiesHero from "../components/eventsAndActivitiesHero";
 import DecorHeading from "../components/DecorHeading";
+import Hero from "../components/Hero";
 
 const StyledActivitiesPage = styled.div`
   @media (min-width: 992px) {
@@ -19,14 +19,15 @@ const StyledActivitiesPage = styled.div`
 `;
 
 const Activities = ({ content }) => {
-  console.log(content);
   return (
     <StyledActivitiesPage>
-      <EventsAndActivitiesHero
-        title={content.heading}
-        heroImageUrl={content.heroImageUrl}
-        text={content.introduction}
+      <Hero
+        image={content.heroImageUrl}
+        alt={content.heading}
+        heading={content.heading}
+        description={content.introduction}
       />
+
       <DecorHeading heading="KOMMANDE AKTIVITETER" />
       <section className="cardSection">
         <div className="cardContainer">

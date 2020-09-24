@@ -6,6 +6,7 @@ import HomeHero from "../components/HomeHero";
 import PageDisplayer from "../components/PageDisplayer";
 import Instagram from "../components/Instagram";
 import { useEffect, useState } from "react";
+import Hero from "../components/Hero";
 
 const Index = ({ content, instagram }) => {
   const home = content.home;
@@ -20,16 +21,18 @@ const Index = ({ content, instagram }) => {
   const [instagramPosts, setInstagramPosts] = useState(null);
   const [instagramUsername, setInstagramUsername] = useState(null);
 
-  useEffect(() => {
-    fetch("https://www.instagram.com/gundlagardscafe/?__a=1")
-      .then((res) => res.json())
-      .then((instagram) => {
-        setInstagramPosts(
-          instagram.graphql.user.edge_owner_to_timeline_media.edges.slice(0, 6)
-        );
-        setInstagramUsername(instagram.graphql.user.username);
-      });
-  });
+  // useEffect(() => {
+  //   fetch("https://www.instagram.com/gundlagardscafe/?__a=1")
+  //     .then((res) => res.json())
+  //     .then((instagram) => {
+  //       setInstagramPosts(
+  //         instagram.graphql.user.edge_owner_to_timeline_media.edges.slice(0, 6)
+  //       );
+  //       setInstagramUsername(instagram.graphql.user.username);
+  //     });
+  // });
+
+  const heroButtons = content.menu.slice(3, 5);
 
   return (
     <div>
@@ -38,6 +41,7 @@ const Index = ({ content, instagram }) => {
         subHeading={hero.subHeading}
         image={hero.backgroundImage.asset._ref}
         alt={hero.backgroundImage.caption}
+        buttons={heroButtons}
       />
       <History heading={home.introductionTitle} text={home.introduction} />
       <Cafe
@@ -51,11 +55,11 @@ const Index = ({ content, instagram }) => {
         heroes={content.heroes}
         readMore={content.readMore.readMore}
       />
-      <Instagram
+      {/* <Instagram
         content={home.instagram}
         username={instagramUsername}
         posts={instagramPosts}
-      />
+      /> */}
     </div>
   );
 };
@@ -72,14 +76,21 @@ export async function getStaticProps() {
       "image": hero.backgroundImage.asset._ref,
       "alt": hero.backgroundImage.caption,
     },
-     "readMore": *[_type == "settings"][0]{readMore}
+     "readMore": *[_type == "settings"][0]{readMore},
+     "menu": *[_type == "menu"] | order(order asc)
     }
     `
   );
 
+  // const instagramRes = await fetch(
+  //   "https://www.instagram.com/gundlagardscafe/?__a=1"
+  // );
+  // const instagram = await instagramRes.json();
+
   return {
     props: {
       content,
+      // instagram,
     },
   };
 }

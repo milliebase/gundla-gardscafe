@@ -54,26 +54,26 @@ const Layout = (props) => {
   };
 
   useEffect(() => {
-    const width = window.innerWidth;
-
-    if (width > 992) {
-      setIsDesktop(true);
-    }
-  });
-
-  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
   });
 
   useEffect(() => {
+    const width = window.innerWidth;
+
+    if (width > 992) {
+      setIsDesktop(true);
+    } else {
+      setIsDesktop(false);
+    }
+
     const body = document.querySelector("body").classList;
 
-    if (showMenu) {
+    if (showMenu && !isDesktop) {
       body.add("no-scroll");
     } else {
       body.remove("no-scroll");
     }
-  }, [showMenu]);
+  });
 
   return (
     <StyledLayout>

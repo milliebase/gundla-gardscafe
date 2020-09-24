@@ -83,7 +83,7 @@ const PageCard = ({
       <div className="text">
         <DecorHeading heading={heading} dark />
         <PortableText blocks={description} />
-        <LinkButton text={readMore} href={`/${slug}`} />
+        {readMore && <LinkButton text={readMore} href={`/${slug}`} />}
       </div>
     </StyledPageCard>
   );

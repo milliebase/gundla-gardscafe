@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { urlFor } from "../../imageUrl";
+import LinkButton from "../LinkButton";
 
 const StyledHomeHero = styled.section`
   width: 100%;
@@ -39,6 +40,14 @@ const StyledHomeHero = styled.section`
     }
   }
 
+  .hero-buttons {
+    margin: 5% 0;
+
+    button {
+      margin: 2% 0;
+    }
+  }
+
   @media (min-width: 992px) {
     justify-content: space-between;
     align-items: center;
@@ -57,15 +66,34 @@ const StyledHomeHero = styled.section`
         height: 590px;
       }
     }
+
+    .hero-buttons {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+    }
   }
 `;
 
-const HomeHero = ({ heading, subHeading, image, alt }) => {
+const HomeHero = ({ heading, subHeading, image, alt, buttons }) => {
   return (
     <StyledHomeHero>
       <div className="text">
         <h1>{heading}</h1>
         <h2>{subHeading}</h2>
+
+        <div className="hero-buttons">
+          {buttons &&
+            buttons.map((button, i) => {
+              return (
+                <LinkButton
+                  key={i}
+                  text={button.heading}
+                  href={`/${button.slug.current}`}
+                />
+              );
+            })}
+        </div>
       </div>
 
       <div className="image">
