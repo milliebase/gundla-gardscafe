@@ -9,7 +9,6 @@ const StyledFlowers = styled.div`
     display: flex;
     flex-direction: column;
     align-items: space-between;
-    z-index: -10;
 
     div {
       width: 100%;
@@ -26,10 +25,12 @@ const StyledFlowers = styled.div`
     div:last-of-type {
       display: flex;
       justify-content: flex-end;
+      margin-bottom: 50px;
 
       img {
         margin-bottom: -100px;
         margin-right: 50px;
+        margin-top: -50px;
       }
     }
   }

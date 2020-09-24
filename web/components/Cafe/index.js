@@ -36,6 +36,9 @@ const StyledCafe = styled.section`
     .holder {
       height: 350px;
       flex-direction: row;
+      position: absolute;
+      z-index: 10;
+      top: 150px;
     }
 
     .image {
@@ -65,9 +68,6 @@ const StyledFlowers = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
-    z-index: -10;
-    position: absolute;
-    top: 0;
 
     div {
       width: 50%;
@@ -78,13 +78,14 @@ const StyledFlowers = styled.div`
       display: flex;
       align-items: flex-end;
       margin-left: -70px;
-      margin-top: 120px;
+      margin-top: 100px;
     }
 
     div:last-of-type {
       display: flex;
       align-items: flex-start;
       justify-content: flex-end;
+      margin-top: -30px;
       margin-right: -130px;
     }
   }

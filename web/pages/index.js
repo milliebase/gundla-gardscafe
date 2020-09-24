@@ -6,7 +6,6 @@ import HomeHero from "../components/HomeHero";
 import PageDisplayer from "../components/PageDisplayer";
 import Instagram from "../components/Instagram";
 import { useEffect, useState } from "react";
-import Hero from "../components/Hero";
 
 const Index = ({ content, instagram }) => {
   const home = content.home;
