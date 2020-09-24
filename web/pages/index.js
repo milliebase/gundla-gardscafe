@@ -77,15 +77,9 @@ export async function getStaticProps() {
     `
   );
 
-  // const instagramRes = await fetch(
-  //   "https://www.instagram.com/gundlagardscafe/?__a=1"
-  // );
-  // const instagram = await instagramRes.json();
-
   return {
     props: {
       content,
-      // instagram,
     },
   };
 }
