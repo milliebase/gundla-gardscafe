@@ -5,16 +5,31 @@ import History from "../components/History";
 import HomeHero from "../components/HomeHero";
 import PageDisplayer from "../components/PageDisplayer";
 import Instagram from "../components/Instagram";
+import { useEffect, useState } from "react";
 
 const Index = ({ content, instagram }) => {
   const home = content.home;
   const hero = home.hero;
   const cafe = home.cafeSection;
-  const instagramPosts = instagram.graphql.user.edge_owner_to_timeline_media.edges.slice(
-    0,
-    6
-  );
-  const instagramUsername = instagram.graphql.user.username;
+  // const instagramPosts = instagram.graphql.user.edge_owner_to_timeline_media.edges.slice(
+  //   0,
+  //   6
+  // );
+  // const instagramUsername = instagram.graphql.user.username;
+
+  const [instagramPosts, setInstagramPosts] = useState(null);
+  const [instagramUsername, setInstagramUsername] = useState(null);
+
+  useEffect(() => {
+    fetch("https://www.instagram.com/gundlagardscafe/?__a=1")
+      .then((res) => res.json())
+      .then((instagram) => {
+        setInstagramPosts(
+          instagram.graphql.user.edge_owner_to_timeline_media.edges.slice(0, 6)
+        );
+        setInstagramUsername(instagram.graphql.user.username);
+      });
+  });
 
   return (
     <div>
@@ -62,15 +77,15 @@ export async function getStaticProps() {
     `
   );
 
-  const instagramRes = await fetch(
-    "https://www.instagram.com/gundlagardscafe/?__a=1"
-  );
-  const instagram = await instagramRes.json();
+  // const instagramRes = await fetch(
+  //   "https://www.instagram.com/gundlagardscafe/?__a=1"
+  // );
+  // const instagram = await instagramRes.json();
 
   return {
     props: {
       content,
-      instagram,
+      // instagram,
     },
   };
 }

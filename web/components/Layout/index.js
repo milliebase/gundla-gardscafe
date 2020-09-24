@@ -66,12 +66,12 @@ const Layout = (props) => {
   });
 
   useEffect(() => {
-    const body = document.querySelector("body").classList.toggle("no-scroll");
+    const body = document.querySelector("body").classList;
 
     if (showMenu) {
-      body;
+      body.add("no-scroll");
     } else {
-      body;
+      body.remove("no-scroll");
     }
   }, [showMenu]);
 
