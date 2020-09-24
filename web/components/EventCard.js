@@ -20,6 +20,13 @@ const StyledEventCard = styled.div`
     * {
       margin: 0;
     }
+    .description {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /* number of lines to show */
+      -webkit-box-orient: vertical;
+    }
   }
   Button {
     margin-left: 16px;
@@ -38,7 +45,8 @@ const StyledEventCard = styled.div`
   }
 
   @media (min-width: 992px) {
-    height: 179px;
+    position: relative;
+    height: 200px;
     padding-bottom: 0;
     display: flex;
     flex-direction: row;
@@ -46,7 +54,15 @@ const StyledEventCard = styled.div`
     align-items: space-between;
     .imageContainer {
       height: 100%;
-      width: 29%;
+      width: 30%;
+    }
+    .textContainer {
+      width: 70%;
+    }
+    Button {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
     }
   }
 `;
@@ -65,7 +81,7 @@ const EventCard = ({ item, path }) => {
           {date.month}
         </h3>
         <h3>{item.title}</h3>
-        <p>{item.description}</p>
+        <p className="description">{item.description}</p>
         <LinkButton href={`/${path}/${item._id}`} text="läs mer" />
       </div>
     </StyledEventCard>

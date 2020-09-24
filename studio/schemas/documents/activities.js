@@ -28,5 +28,10 @@ export default {
         },
       ],
     },
+    {
+      name: "ticketsForm",
+      title: "Formulär för biljetter",
+      type: "booking",
+    },
   ],
 };

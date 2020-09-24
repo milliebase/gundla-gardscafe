@@ -23,5 +23,10 @@ export default {
       title: "datum",
       type: "date",
     },
+    {
+      name: "bookingInfo",
+      title: "Bokningsinformation",
+      type: "string",
+    },
   ],
 };
