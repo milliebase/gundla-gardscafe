@@ -91,6 +91,11 @@ const StyledMenuItems = styled.div`
       }
     }
 
+    .marked {
+      text-decoration: underline;
+      color: pink;
+    }
+
     .close-menu {
       display: none;
     }
