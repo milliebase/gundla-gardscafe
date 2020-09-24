@@ -16,11 +16,10 @@ App.getInitialProps = async () => {
   const res = await client.fetch(
     `
     {
-      "menu": *[_type == "menu"] | order(order asc) ,
+      "menu": *[_type == "menu"] | order(order asc),
       "directions": *[_type == "directions"][0],
       "links": *[_type == "settings"][0]{socialMedia},
     }
-
     `
   );
 

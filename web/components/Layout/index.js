@@ -81,7 +81,7 @@ const Layout = (props) => {
         <header>
           <img src="/assets/logo.svg" alt="Gundla Gårdscafé logo" />
 
-          {(showMenu || isDesktop) && (
+          {/* {(showMenu || isDesktop) && (
             <MenuItems
               items={props.menu}
               showMenu={showMenu}
@@ -91,7 +91,7 @@ const Layout = (props) => {
 
           {!showMenu && !isBottom && (
             <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
-          )}
+          )} */}
         </header>
         {props.children}
       </div>

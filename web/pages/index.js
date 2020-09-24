@@ -7,15 +7,11 @@ import PageDisplayer from "../components/PageDisplayer";
 import Instagram from "../components/Instagram";
 import { useEffect, useState } from "react";
 
-const Index = ({ content, instagram }) => {
+const Index = ({ content }) => {
   const home = content.home;
   const hero = home.hero;
   const cafe = home.cafeSection;
-  // const instagramPosts = instagram.graphql.user.edge_owner_to_timeline_media.edges.slice(
-  //   0,
-  //   6
-  // );
-  // const instagramUsername = instagram.graphql.user.username;
+  const heroButtons = content.menu.slice(3, 5);
 
   const [instagramPosts, setInstagramPosts] = useState(null);
   const [instagramUsername, setInstagramUsername] = useState(null);
@@ -30,8 +26,6 @@ const Index = ({ content, instagram }) => {
         setInstagramUsername(instagram.graphql.user.username);
       });
   });
-
-  const heroButtons = content.menu.slice(3, 5);
 
   return (
     <div>
@@ -81,15 +75,9 @@ export async function getStaticProps() {
     `
   );
 
-  // const instagramRes = await fetch(
-  //   "https://www.instagram.com/gundlagardscafe/?__a=1"
-  // );
-  // const instagram = await instagramRes.json();
-
   return {
     props: {
       content,
-      // instagram,
     },
   };
 }
