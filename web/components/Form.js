@@ -74,8 +74,8 @@ export default class Form extends React.Component {
           ></textarea>
         </label>
 
-        {status === "SUCCESS" ? <p>Thanks!</p> : <Button text="skicka" />}
-        {status === "ERROR" && <p>Ooops! There was an error.</p>}
+        {status === "SUCCESS" ? <p>Tack!</p> : <Button text="skicka" />}
+        {status === "ERROR" && <p>Något gick fel.</p>}
       </StyledForm>
     );
   }

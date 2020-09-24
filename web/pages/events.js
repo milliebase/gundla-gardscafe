@@ -11,6 +11,9 @@ const StyledEventsPage = styled.div`
     margin-bottom: 24px;
   }
   @media (min-width: 992px) {
+    .separation {
+      height: 200px;
+    }
     .cardSection {
       display: flex;
       flex-direction: column;
@@ -45,6 +48,7 @@ const Events = ({ content }) => {
         heroImageUrl={content.heroImageUrl}
         text={content.introduction}
       />
+      <div className="separation"></div>
       <DecorHeading heading="KOMMANDE EVENEMANG" />
       <section className="cardSection">
         <div className="cardContainer">

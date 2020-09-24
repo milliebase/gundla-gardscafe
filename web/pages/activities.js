@@ -6,6 +6,9 @@ import DecorHeading from "../components/DecorHeading";
 
 const StyledActivitiesPage = styled.div`
   @media (min-width: 992px) {
+    .separation {
+      height: 200px;
+    }
     .cardSection {
       display: flex;
       flex-direction: column;
@@ -27,6 +30,7 @@ const Activities = ({ content }) => {
         heroImageUrl={content.heroImageUrl}
         text={content.introduction}
       />
+      <div className="separation"></div>
       <DecorHeading heading="KOMMANDE AKTIVITETER" />
       <section className="cardSection">
         <div className="cardContainer">

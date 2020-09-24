@@ -8,7 +8,7 @@ const StyledLayout = styled.div`
   min-height: 100vh;
 
   .wrapper {
-    padding: 0 5%;
+    padding: 0 20px;
     background-color: var(--gundla-green);
   }
 

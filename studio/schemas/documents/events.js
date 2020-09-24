@@ -30,7 +30,12 @@ export default {
     },
     {
       name: "bookingForm",
-      title: "bokningsformulär",
+      title: "Formulär för artister",
+      type: "booking",
+    },
+    {
+      name: "ticketForm",
+      title: "Formulär för biljettbokning",
       type: "booking",
     },
   ],
