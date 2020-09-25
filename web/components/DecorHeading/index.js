@@ -42,6 +42,7 @@ const StyledHeadingText = styled.div`
   padding: 2% 5%;
 
   h2 {
+    text-transform: uppercase !important;
     color: ${(props) =>
       props.isDark ? "var(--gundla-brown)" : "var(--gundla-paper)"};
   }
