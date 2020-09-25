@@ -8,5 +8,5 @@ Landing page for Gundla gårdscafé
 * Styled-Components
 
 ## Authors
-Oskar Joss
-Betsy Alva Soplin
+- Oskar Joss
+- Betsy Alva Soplin
