@@ -1,6 +1,6 @@
 # Gundla Gårdscafé
 
-Landing page for Gundla gårdscafé
+Landing page for Gundla gårdscafé.
 
 ### Built With
 * NextJS
@@ -8,5 +8,11 @@ Landing page for Gundla gårdscafé
 * Styled-Components
 
 ## Authors
+
+### Web developers
 - Oskar Joss
 - Betsy Alva Soplin
+
+### Digital designers
+- Elin Iller
+- Oscar Felldin
