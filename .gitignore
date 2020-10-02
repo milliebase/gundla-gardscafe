@@ -2,3 +2,4 @@
 .vs_code
 .env.local
 .next
+node_modules
