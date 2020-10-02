@@ -14,13 +14,11 @@ jobs:
 
     steps:
       # Checks out a copy of your repository on the ubuntu-latest machine
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      - name: npm install
-        run: npm i
+      - uses: actions/setup-node@v1
 
-      # Runs the Super-Linter action
-      - name: format
-        run: npm test
+      - run: npm i
+
+      - run: npm test
 
