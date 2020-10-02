@@ -1,0 +1,22 @@
+{
+  "name": "gundla-gardscafe",
+  "version": "1.0.0",
+  "description": "Landing page for Gundla gårdscafé.",
+  "main": "index.js",
+  "scripts": {
+    "test": "prettier --check ./**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milliebase/gundla-gardscafe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/milliebase/gundla-gardscafe/issues"
+  },
+  "homepage": "https://github.com/milliebase/gundla-gardscafe#readme",
+  "dependencies": {
+    "prettier": "^2.1.2"
+  }
+}
